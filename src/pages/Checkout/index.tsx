@@ -4,6 +4,7 @@ import * as zod from 'zod'
 
 import { DeliveryAddress } from './components/DeliveryAddress'
 import { Payment } from './components/Payment'
+import { OrderSummary } from './components/OrderSummary'
 
 import { CheckoutContainer } from './styled'
 
@@ -48,6 +49,12 @@ export function Checkout() {
             <DeliveryAddress />
             <Payment />
           </FormProvider>
+        </div>
+
+        <div>
+          <p>Cafés selecionados</p>
+
+          <OrderSummary />
         </div>
       </form>
     </CheckoutContainer>
