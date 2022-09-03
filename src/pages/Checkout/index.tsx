@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 import { DeliveryAddress } from './components/DeliveryAddress'
+import { Payment } from './components/Payment'
 
 import { CheckoutContainer } from './styled'
 
@@ -45,6 +46,7 @@ export function Checkout() {
 
           <FormProvider {...newOrderForm}>
             <DeliveryAddress />
+            <Payment />
           </FormProvider>
         </div>
       </form>
