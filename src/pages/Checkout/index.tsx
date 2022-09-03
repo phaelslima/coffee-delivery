@@ -1,6 +1,10 @@
-import { useForm } from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+
+import { DeliveryAddress } from './components/DeliveryAddress'
+
+import { CheckoutContainer } from './styled'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
@@ -34,10 +38,16 @@ export function Checkout() {
   }
 
   return (
-    <main>
+    <CheckoutContainer>
       <form onSubmit={handleSubmit(handleCreateNewOrder)}>
-        <h1>Checkout</h1>
+        <div>
+          <p>Complete seu pedido</p>
+
+          <FormProvider {...newOrderForm}>
+            <DeliveryAddress />
+          </FormProvider>
+        </div>
       </form>
-    </main>
+    </CheckoutContainer>
   )
 }
