@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
+import { useCart } from '../../contexts/CartContext'
+
 import logoImg from '../../assets/logo-coffee-delivery.svg'
 
 import {
@@ -12,10 +14,14 @@ import {
 } from './styles'
 
 export function Header() {
+  const { items } = useCart()
+
   return (
     <HeaderContainer>
       <HeaderContent>
-        <img src={logoImg} alt="Logo do Coffee Delivery" />
+        <Link to="/">
+          <img src={logoImg} alt="Logo do Coffee Delivery" />
+        </Link>
 
         <HeaderActions>
           <Location>
@@ -25,6 +31,7 @@ export function Header() {
           <Cart>
             <Link to="/checkout" title="Página de Checkout">
               <ShoppingCart size={22} weight="fill" />
+              {!!items.length && <span>{items.length}</span>}
             </Link>
           </Cart>
         </HeaderActions>
