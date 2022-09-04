@@ -15,14 +15,7 @@ export function Home() {
 
         <CoffeeListContent>
           {data.map((item) => (
-            <CoffeeCard
-              key={item.id}
-              name={item.name}
-              image={item.image}
-              description={item.description}
-              tags={item.tags}
-              price={item.price}
-            />
+            <CoffeeCard key={item.id} {...item} />
           ))}
         </CoffeeListContent>
       </CoffeeListContainer>
