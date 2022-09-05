@@ -70,4 +70,8 @@ export const ConfirmOrderButton = styled.button`
   &:hover {
     background: ${({ theme }) => theme['yellow-dark']};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `

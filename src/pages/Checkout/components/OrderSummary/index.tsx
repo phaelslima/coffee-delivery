@@ -1,5 +1,6 @@
 import { CoffeeSelected } from './CoffeeSelected'
 
+import { useCart } from '../../../../contexts/CartContext'
 import { formattedCurrency } from '../../../../utils/formattedCurrency'
 
 import {
@@ -11,34 +12,36 @@ import {
 } from './styled'
 
 export function OrderSummary() {
+  const { items } = useCart()
+
+  const subtotal = items.reduce((acc, cur) => acc + cur.totalPrice, 0)
+  const deliveryFee = !items.length ? 0 : 3.5
+  const total = subtotal + deliveryFee
+
   return (
     <OrderSummaryContainer>
-      {/* {[].map((item, index) => (
-        <CoffeeSelected
-          key={index}
-          name=""
-          image=""
-          quantity={}
-          price={}
-        />
-      ))} */}
+      {items.map((item) => (
+        <CoffeeSelected key={item.id} {...item} />
+      ))}
 
       <OrderSubtotal>
         <span>Total de itens</span>
-        <span>{formattedCurrency(0)}</span>
+        <span>{formattedCurrency(subtotal)}</span>
       </OrderSubtotal>
 
       <DeliveryFee>
         <span>Entrega</span>
-        <span>{formattedCurrency(0)}</span>
+        <span>{formattedCurrency(deliveryFee)}</span>
       </DeliveryFee>
 
       <OrderTotal>
         <span>Total</span>
-        <span>{formattedCurrency(0)}</span>
+        <span>{formattedCurrency(total)}</span>
       </OrderTotal>
 
-      <ConfirmOrderButton type="submit">Confirmar Pedido</ConfirmOrderButton>
+      <ConfirmOrderButton type="submit" disabled={!items.length}>
+        Confirmar Pedido
+      </ConfirmOrderButton>
     </OrderSummaryContainer>
   )
 }
