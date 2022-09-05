@@ -4,6 +4,7 @@ export enum ActionType {
   ADD_COFFEE_TO_CART = 'ADD_COFFEE_TO_CART',
   UPDATE_COFFEE_IN_CART = 'UPDATE_COFFEE_IN_CART',
   DELETE_COFFEE_FROM_CART = 'DELETE_COFFEE_FROM_CART',
+  CLEAN_CART = 'CLEAN_CART',
 }
 
 export function addCoffeeToCartAction(coffee: CardItemData) {
@@ -40,5 +41,11 @@ export function deleteCoffeeFromCartAction(coffeeId: string) {
     payload: {
       coffeeId,
     },
+  }
+}
+
+export function cleanCartAction() {
+  return {
+    type: ActionType.CLEAN_CART,
   }
 }

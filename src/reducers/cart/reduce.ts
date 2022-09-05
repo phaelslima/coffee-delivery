@@ -68,6 +68,12 @@ export function CartReducer(state = INITIAL_STATE, action: any) {
         break
       }
 
+      case ActionType.CLEAN_CART: {
+        draft.items = []
+
+        break
+      }
+
       default:
         return draft
     }

@@ -8,6 +8,7 @@ import {
 
 import {
   addCoffeeToCartAction,
+  cleanCartAction,
   deleteCoffeeFromCartAction,
   updateCoffeeInCartAction,
   UpdatedCoffeeData,
@@ -20,6 +21,7 @@ type CartContextData = {
   addCoffeeToCart: (coffee: CardItemData) => void
   updateCoffeeInCart: (updatedCoffee: UpdatedCoffeeData) => void
   deleteCoffeeFromCart: (coffeeId: string) => void
+  cleanCart: () => void
 }
 
 const CartContext = createContext({} as CartContextData)
@@ -63,6 +65,10 @@ export function CartProvider({ children }: CartProviderProps) {
     dispatch(deleteCoffeeFromCartAction(coffeeId))
   }
 
+  function cleanCart() {
+    dispatch(cleanCartAction())
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -70,6 +76,7 @@ export function CartProvider({ children }: CartProviderProps) {
         addCoffeeToCart,
         updateCoffeeInCart,
         deleteCoffeeFromCart,
+        cleanCart,
       }}
     >
       {children}
