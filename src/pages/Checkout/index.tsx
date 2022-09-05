@@ -12,13 +12,19 @@ import { useCart } from '../../contexts/CartContext'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
-    postalCode: zod.string().nonempty({ message: 'Campo obrigatório' }),
+    postalCode: zod
+      .string()
+      .nonempty({ message: 'Campo obrigatório' })
+      .length(8, 'O CEP deve conter 8 caracteres'),
     street: zod.string().nonempty({ message: 'Campo obrigatório' }),
     streetNumber: zod.string().nonempty({ message: 'Campo obrigatório' }),
     complement: zod.string().optional(),
     district: zod.string().nonempty({ message: 'Campo obrigatório' }),
     city: zod.string().nonempty({ message: 'Campo obrigatório' }),
-    state: zod.string().nonempty({ message: 'Campo obrigatório' }),
+    state: zod
+      .string()
+      .nonempty({ message: 'Campo obrigatório' })
+      .length(2, 'O CEP deve conter 2 caracteres'),
   }),
   paymentMethod: zod
     .string({
