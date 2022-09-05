@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
@@ -7,6 +8,7 @@ import { Payment } from './components/Payment'
 import { OrderSummary } from './components/OrderSummary'
 
 import { CheckoutContainer } from './styled'
+import { useCart } from '../../contexts/CartContext'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
@@ -29,6 +31,9 @@ const newOrderFormValidationSchema = zod.object({
 export type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
 
 export function Checkout() {
+  const { cleanCart } = useCart()
+  const navigate = useNavigate()
+
   const newOrderForm = useForm<NewOrderFormData>({
     resolver: zodResolver(newOrderFormValidationSchema),
   })
@@ -36,7 +41,13 @@ export function Checkout() {
   const { handleSubmit } = newOrderForm
 
   function handleCreateNewOrder(data: NewOrderFormData) {
-    console.log(data)
+    navigate('/success', {
+      state: {
+        order: data,
+      },
+    })
+
+    cleanCart()
   }
 
   return (
