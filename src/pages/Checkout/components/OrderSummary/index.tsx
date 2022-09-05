@@ -1,6 +1,7 @@
 import { CoffeeSelected } from './CoffeeSelected'
 
 import { useCart } from '../../../../contexts/CartContext'
+import { EmptyCart } from './EmptyCart/Index'
 import { formattedCurrency } from '../../../../utils/formattedCurrency'
 
 import {
@@ -20,28 +21,34 @@ export function OrderSummary() {
 
   return (
     <OrderSummaryContainer>
-      {items.map((item) => (
-        <CoffeeSelected key={item.id} {...item} />
-      ))}
+      {!items.length ? (
+        <EmptyCart />
+      ) : (
+        <>
+          {items.map((item) => (
+            <CoffeeSelected key={item.id} {...item} />
+          ))}
 
-      <OrderSubtotal>
-        <span>Total de itens</span>
-        <span>{formattedCurrency(subtotal)}</span>
-      </OrderSubtotal>
+          <OrderSubtotal>
+            <span>Total de itens</span>
+            <span>{formattedCurrency(subtotal)}</span>
+          </OrderSubtotal>
 
-      <DeliveryFee>
-        <span>Entrega</span>
-        <span>{formattedCurrency(deliveryFee)}</span>
-      </DeliveryFee>
+          <DeliveryFee>
+            <span>Entrega</span>
+            <span>{formattedCurrency(deliveryFee)}</span>
+          </DeliveryFee>
 
-      <OrderTotal>
-        <span>Total</span>
-        <span>{formattedCurrency(total)}</span>
-      </OrderTotal>
+          <OrderTotal>
+            <span>Total</span>
+            <span>{formattedCurrency(total)}</span>
+          </OrderTotal>
 
-      <ConfirmOrderButton type="submit" disabled={!items.length}>
-        Confirmar Pedido
-      </ConfirmOrderButton>
+          <ConfirmOrderButton type="submit" disabled={!items.length}>
+            Confirmar Pedido
+          </ConfirmOrderButton>
+        </>
+      )}
     </OrderSummaryContainer>
   )
 }
