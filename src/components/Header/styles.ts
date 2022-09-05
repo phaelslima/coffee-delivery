@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.header``
+export const HeaderContainer = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background: ${({ theme }) => theme.background};
+  border: 1px solid ${({ theme }) => theme['base-input']};
+
+  z-index: 10;
+`
 
 export const HeaderContent = styled.div`
   display: flex;
@@ -9,6 +19,12 @@ export const HeaderContent = styled.div`
   padding: 2rem 1.5rem;
 
   max-width: 73rem;
+
+  #logo {
+    :focus {
+      box-shadow: none;
+    }
+  }
 `
 
 export const HeaderActions = styled.ul`

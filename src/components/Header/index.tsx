@@ -19,7 +19,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <Link to="/">
+        <Link to="/" id="logo">
           <img src={logoImg} alt="Logo do Coffee Delivery" />
         </Link>
 

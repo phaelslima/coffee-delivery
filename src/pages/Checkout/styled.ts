@@ -4,7 +4,7 @@ export const CheckoutContainer = styled.main`
   form {
     display: grid;
     grid-template-columns: 40rem 1fr;
-    margin: 0 auto;
+    margin: 6.75rem auto 0;
     padding: 2.5rem 1.5rem;
     gap: 2rem;
 

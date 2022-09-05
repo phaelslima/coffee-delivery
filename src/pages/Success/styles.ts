@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SuccessContainer = styled.main`
-  margin: 0 auto;
+  margin: 6.75rem auto 0;
   padding: 5rem 1.5rem;
 
   max-width: 73rem;
