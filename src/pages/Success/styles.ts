@@ -15,6 +15,10 @@ export const SuccessContainer = styled.main`
     line-height: 2.6rem;
 
     color: ${({ theme }) => theme['yellow-dark']};
+
+    @media screen and (max-width: 62rem) {
+      text-align: center;
+    }
   }
 
   h1 + p {
@@ -22,6 +26,10 @@ export const SuccessContainer = styled.main`
     line-height: 1.625rem;
 
     color: ${({ theme }) => theme['base-subtitle']};
+
+    @media screen and (max-width: 62rem) {
+      text-align: center;
+    }
   }
 `
 
@@ -30,6 +38,20 @@ export const SuccessContent = styled.div`
   justify-content: space-between;
   margin-top: 1.75rem;
   gap: 6.375rem;
+
+  @media screen and (max-width: 69rem) {
+    img {
+      width: 40%;
+    }
+  }
+
+  @media screen and (max-width: 62rem) {
+    justify-content: center;
+
+    img {
+      display: none;
+    }
+  }
 `
 
 export const InfoList = styled.ul`
@@ -40,6 +62,8 @@ export const InfoList = styled.ul`
 
   position: relative;
   flex: 1;
+
+  max-width: 32rem;
 
   list-style: none;
 
@@ -55,6 +79,10 @@ export const InfoList = styled.ul`
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+
+  @media screen and (max-width: 36rem) {
+    max-width: auto;
   }
 `
 

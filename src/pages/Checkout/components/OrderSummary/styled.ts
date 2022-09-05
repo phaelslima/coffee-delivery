@@ -5,6 +5,14 @@ export const OrderSummaryContainer = styled.section`
 
   background: ${({ theme }) => theme['base-card']};
   border-radius: 0.375rem 2.75rem;
+
+  @media screen and (max-width: 62rem) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    padding: 1.5rem;
+  }
 `
 
 export const OrderSubtotal = styled.div`

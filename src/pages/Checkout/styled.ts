@@ -20,5 +20,13 @@ export const CheckoutContainer = styled.main`
 
       color: ${({ theme }) => theme['base-subtitle']};
     }
+
+    @media screen and (max-width: 69rem) {
+      grid-template-columns: 1fr 23.5rem;
+    }
+
+    @media screen and (max-width: 62rem) {
+      grid-template-columns: 1fr;
+    }
   }
 `

@@ -11,6 +11,10 @@ export const EmptyCartContainer = styled.div`
     margin-bottom: 1.5rem;
     color: ${({ theme }) => theme['yellow-dark']};
   }
+
+  & > p {
+    text-align: center;
+  }
 `
 
 export const CoffeesLink = styled(Link)`

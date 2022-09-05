@@ -36,12 +36,32 @@ export const DeliveryAddressContainer = styled.section`
       }
     }
   }
+
+  @media screen and (max-width: 62rem) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    padding: 1.5rem;
+  }
 `
 export const InputTextGroup = styled.div`
   display: grid;
   grid-template-columns: 12.5rem 1fr 3.75rem;
   column-gap: 0.75rem;
   row-gap: 1rem;
+
+  @media screen and (max-width: 62rem) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: 48rem) {
+    grid-template-columns: 12.5rem 1fr 3.75rem;
+  }
+
+  @media screen and (max-width: 36rem) {
+    grid-template-columns: 1fr;
+  }
 `
 
 interface ColProps {
@@ -50,4 +70,8 @@ interface ColProps {
 
 export const Col = styled.div<ColProps>`
   grid-column: ${({ cols = 1 }) => `auto / span ${cols}`};
+
+  @media screen and (max-width: 36rem) {
+    grid-column: 1;
+  }
 `

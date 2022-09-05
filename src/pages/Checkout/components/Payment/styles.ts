@@ -36,12 +36,24 @@ export const PaymentContainer = styled.section`
       }
     }
   }
+
+  @media screen and (max-width: 62rem) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    padding: 1.5rem;
+  }
 `
 
 export const PaymentMethodOptions = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+
+  @media screen and (max-width: 36rem) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ErrorMessage = styled.p`
